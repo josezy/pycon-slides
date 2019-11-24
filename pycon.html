@@ -1,45 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+            @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+            @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
+            body { font-family: 'Droid Serif'; }
+            h1, h2, h3 {
+                font-family: 'Yanone Kaffeesatz';
+                font-weight: normal;
+            }
+            .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+        </style>
+    </head>
+    <body>
+        <textarea id="source">
 
 class: center, middle
 
-# Title
+# The road so far on building a web platform for drones
+<br/><br/><br/><br/>
+By: Jose Benitez
+
+???
+
+who am i, where I come from<br>
+emotive intro (what's cool about drones)<br>
+    - TODO
 
 ---
 
-# Agenda
+# History
+### what is people needing from drones
 
-1. Introduction
-2. Deep-dive
-3. ...
+1. Business expertise 
+2. Research group: _air quality project_
+3. Pro-human opportunities
+4. Technology
+
+???
+
+first touch with drones, learning to fly/assemble/program, dynamics<br>
+(aerial video, racing, buy/sell, research, other applications)<br>
+group air quality project (any sensor, live data stream, missions)<br>
+software controllers, network infrastructures, hardware<br>
+human necessities, natural disasters, package delivery, knowledge sharing<br>
 
 ---
 
-# Introduction
+# Big fish
 
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
+1. First approach
+2. Robust solution - Architecture
+3. Marvellous world of Mavlink
+4. Why python/django?
+5. Why channels (websockets)?
+6. Why react/redux?
+
+???
+
+TODO: split these part (3 slides)<br>
+basic configuration (sensors+arduino+xbee up in a drone)<br>
+ TODO: paste image<br>
+(python speech)<br>
+mavlink is a protocol...<br>
+keep connection alive is important...<br>
+web interface is made up of components...<br>
+
+---
+
+# SITL demo
+
+???
+
+TODO: image/video of demo<br>
+Existing platforms (flytbase, virtuxplorer) TODO: describe them<br>
+
+---
+
+# What's next?
+1. Autonomous (AI)
+2. Live video
+3. User accounts (permissions)
+4. Social network (real web challenge)
+
+# Q&A
+
+???
+
+AI: facereko-ppl counter - on field detections
+
+        </textarea>
+        <script src="static/remark-latest.min.js" type="text/javascript"></script>
+        <script>
+            var slideshow = remark.create();
+        </script>
+    </body>
 </html>
