@@ -56,9 +56,8 @@ human necessities, natural disasters, package delivery, knowledge sharing<br>
 
 ???
 
-TODO: split these part (3 slides)<br>
 basic configuration (sensors+arduino+xbee up in a drone)<br>
- TODO: paste image<br>
+ TODO: include image (franki no background)<br>
 (python speech)<br>
 mavlink is a protocol...<br>
 keep connection alive is important...<br>
@@ -72,7 +71,17 @@ web interface is made up of components...<br>
 ]
 
 .right-column[
-TODO
+## Data adquisition
+* Arduino domination
+* Sensor + Transmitter = easy way
+
+## Drone capabilities
+* GCS (missions)
+* Hardware/Software
+
+## Need for more...
+* Python is not the fastest
+* Versatile [RPi, PC, Server]
 ]
 
 ---
@@ -84,7 +93,8 @@ TODO
 ]
 
 .right-column[
-TODO
+## Cloud is heaven
+![](media/architecture.png#w100 "System Architecture")
 ]
 
 ---
@@ -97,8 +107,33 @@ TODO
 ]
 
 .right-column[
-TODO
+## Keep talking
+
+MAVLink is a very lightweight messaging protocol for communicating with drones (and between onboard drone components). .red[*]
+
+```python
+from pymavlink import mavutil
+
+drone = mavutil.mavlink_connection(**settings.MAVLINK_TUKANO)
+drone.wait_heartbeat()
+
+drone.mav.request_data_stream_send(
+    drone.target_system,
+    drone.target_component,
+    mavutil.mavlink.MAV_DATA_STREAM_ALL,  # req_stream_id
+    1,  # Rate in Hertz
+    1  # Start/Stop
+)
+
+```
+
+.footnote[.red[*] From [https://mavlink.io/en/](https://mavlink.io/en/)]
+
 ]
+
+???
+
+Mavlink msgs are defined in XML files (dialect)
 
 ---
 
@@ -111,14 +146,29 @@ TODO
 ]
 
 .right-column[
-TODO
+## For platform (RPi-GCS)
+* pymavlink
+* pyserial (_sensors_)
+* redis (_custom messages stack_)
+* websocket-client
+
+## For server
+* django
+* django-channels
+
+## For web interface
+* react/redux
 ]
+
+???
+whole bunch of tasks that python makes simple<br>
+Sadly browsers dont run python (bryton??)
 
 ---
 
 # SITL demo
 
-![Default-aligned image](media/web_interface.jpeg)
+![web interface](media/web_interface.jpeg)
 
 ???
 
@@ -137,12 +187,19 @@ Existing platforms (flytbase, virtuxplorer) TODO: describe them<br>
 
 ???
 
-AI: facereko-ppl counter - on field detections
+AI: facereko-ppl counter - on field detections<br>
+onboard applications thanks to computational power<br>
+
 
         </textarea>
         <script src="static/remark-latest.min.js" type="text/javascript"></script>
         <script>
-            var slideshow = remark.create();
+            var slideshow = remark.create({
+                // ratio: '16:9',
+                navigation: {
+                    scroll: false,
+                }
+            });
         </script>
     </body>
 </html>

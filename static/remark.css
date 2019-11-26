@@ -157,3 +157,7 @@ code {
     float: right;
     padding-top: 1em;
 }
+
+img[src*="#w100"] {
+    width: 100%;
+}
