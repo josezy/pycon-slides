@@ -161,3 +161,10 @@ code {
 img[src*="#w100"] {
     width: 100%;
 }
+
+img[src*="#web-img"] {
+    width: 75%;
+    height: 500px;
+    display: flex;
+    margin: auto;
+}
