@@ -33,7 +33,11 @@ emotive intro
     - drones are cool
     - human flying assistant of the physical world
 
+
+
 ---
+<!-- [[ INTRODUCTION ]] -->
+
 
 # Context
 ### what is people needing from drones
@@ -45,16 +49,37 @@ emotive intro
 
 ???
 
-- teaching while learning (not that good)
-- (aerial video, racing, buy/sell, research, other applications)
-- group air quality project (any sensor, live data stream, missions)
-- human necessities, natural disasters, package delivery, knowledge sharing
+- APPS:
+    - Photography and filming
+    - Advertising
+    - Shipping and delivery
+    - Rescue operations
+    - Farming and agriculture
+    - Law enforcement
+    - Infrastructure maintenance
+    - Wildlife protection
+    - Geographic mapping
+    - Weather forecasting
+
+- Others: racing, buy/sell, research, army
+
+- Teaching while learning (share knowledge was the purpose)
+
+- research group: air quality project
+    - any sensor, live data stream, programmed routes-missions
+
+- human necessities, natural disasters, package delivery
+
 - software controllers, network infrastructures, hardware
 
 WHERE THE IDEA OF A PLATFORM CAME
 - many applications, specific solutions
 
+
+
 ---
+<!-- [[ BIG FISH ]] -->
+
 
 # Big fish
 
@@ -69,11 +94,15 @@ WHERE THE IDEA OF A PLATFORM CAME
 
 - basic configuration (sensors+arduino+xbee up in a drone)
 - mavlink is a protocol...
-- python is many places
+- python is omnipresent
 - keep connection alive is important, dont limit the application
 - web interface is made up of components... (oddslingers, monadical)
 
+
+
 ---
+
+
 
 .left-column[
     ## Big fish
@@ -90,8 +119,8 @@ WHERE THE IDEA OF A PLATFORM CAME
 * Hardware/Software
 
 ## Need for more...
-* Python is not the fastest
-* Versatile [RPi, PC, Server]
+* Python is omnipresent
+* RPi, PC, Server
 ]
 
 ???
@@ -99,7 +128,11 @@ WHERE THE IDEA OF A PLATFORM CAME
 disadvantages
 - more weigth, consumption, extra radio channel
 
+
+
 ---
+
+
 
 .left-column[
     ## Big fish
@@ -110,14 +143,28 @@ disadvantages
 .right-column[
 ## Cloud is heaven
 ![](media/architecture.png#w100 "System Architecture")
+
+
+```!
+Python's large standard library, commonly cited as one of
+its greatest strengths, provides tools suited to many tasks.
+```
+
 ]
 
 ???
 
-More tasks: redis, supervisor<br>
-4G implementation: started as a standalone project
+More tasks: redis, supervisor
+
+where python fits
+    - serial [mavlink protocol]
+    - internet protocols [websockets, server framework]
+
+
 
 ---
+
+
 
 .left-column[
     ## Big fish
@@ -145,6 +192,9 @@ drone.mav.request_data_stream_send(
     1  # Start/Stop
 )
 
+mav_msg = drone.mav.tukano_data_encode('hello drone')
+ws.send(mav_msg.to_json())
+
 ```
 
 .footnote[.red[*] From [https://mavlink.io/en/](https://mavlink.io/en/)]
@@ -155,7 +205,11 @@ drone.mav.request_data_stream_send(
 
 Mavlink msgs are defined in XML files (dialect)
 
+
+
 ---
+
+
 
 .left-column[
     ## Big fish
@@ -184,7 +238,11 @@ Mavlink msgs are defined in XML files (dialect)
 whole bunch of tasks that python makes simple<br>
 Sadly browsers dont run python (bryton??)
 
+
+
 ---
+<!-- [[ ENDING ]] -->
+
 
 # SITL demo
 
@@ -195,7 +253,11 @@ Sadly browsers dont run python (bryton??)
 TODO: image/video of demo<br>
 Existing platforms (flytbase, virtuxplorer) TODO: describe them<br>
 
+
+
 ---
+
+
 
 # What's next?
 1. AI, IoD
@@ -217,6 +279,7 @@ break application limits
         <script>
             var slideshow = remark.create({
                 // ratio: '16:9',
+                slideNumberFormat: '',
                 navigation: {
                     scroll: false,
                 }
