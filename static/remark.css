@@ -158,6 +158,10 @@ code {
     padding-top: 1em;
 }
 
+.small {
+    font-size: 1rem;
+}
+
 img[src*="#w100"] {
     width: 100%;
 }
@@ -167,4 +171,12 @@ img[src*="#web-img"] {
     height: 500px;
     display: flex;
     margin: auto;
+}
+
+img[src*="#drone-use"] {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    max-height: 550px;
+    max-width: 600px;
 }
